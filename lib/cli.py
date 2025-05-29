@@ -40,9 +40,9 @@ def main_menu():
                         )
                         workouts.append(workout)
                     except ValueError:
-                        print("❌ Invalid date format. Use YYYY-MM-DD.")
+                        print(" Invalid date format. Use YYYY-MM-DD.")
                     except Exception as e:
-                        print(f"❌ Error creating workout: {e}")
+                        print(f" Error creating workout: {e}")
                 elif add_workout == 'n':
                     break
                 else:
