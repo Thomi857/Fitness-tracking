@@ -4,7 +4,7 @@ from lib.db.database import session
 from datetime import date
 
 # Create test user
-user1 = User(name="Alice Smith", email="alice@example.com")
+user1 = User(name="Alice Smith", email="alicesmith7@gmail.com")
 
 # Create workouts
 workout1 = WorkoutSession(
