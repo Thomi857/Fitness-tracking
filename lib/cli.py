@@ -12,7 +12,7 @@ def main_menu():
         print("4. View workouts by user ID")
         print("5. View health records by user ID")
         print("6. Exit")
-        choice = input("> ")
+        choice = input("Choose an option: ")
 
         if choice == "1":
             for user in session.query(User).all():
@@ -51,7 +51,7 @@ def main_menu():
             user.workout_sessions = workouts
             session.add(user)
             session.commit()
-            print(f"✅ Added user {user.name} with {len(workouts)} workout(s).")
+            print(f" Added user {user.name} with {len(workouts)} workout(s).")
 
         elif choice == "3":
             user_id = get_int_input("User ID to delete: ")
