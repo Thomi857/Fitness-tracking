@@ -31,6 +31,31 @@ def main_menu():
                         w_date_str = get_nonempty_input("Workout date (YYYY-MM-DD): ")
                         w_date = datetime.strptime(w_date_str, "%Y-%m-%d").date()
                         w_type = get_nonempty_input("Workout type (e.g., Cardio, Strength): ")
+                        muscle_group = None
+                        if w_type.lower() == "strength":
+                            print("Select the muscle group to target:")
+                            muscle_groups = ["Chest", "Back", "Legs", "Arms", "Shoulders", "Core", "Other"]
+                            for idx, group in enumerate(muscle_groups, 1):
+                                print(f"{idx}. {group}")
+                            while True:
+                                try:
+                                    mg_choice = int(input("Enter the number for the muscle group: "))
+                                    if 1 <= mg_choice <= len(muscle_groups):
+                                        muscle_group = muscle_groups[mg_choice - 1]
+                                        break
+                                    else:
+                                        print("Invalid selection. Please choose a valid number.")
+                                except ValueError:
+                                    print("Please enter a number.")
+                            print(f"Targeted muscle group: {muscle_group}")
+                        w_duration = get_int_input("Duration in minutes: ")
+
+                        workout = WorkoutSession(
+                            date=w_date,
+                            type=w_type,
+                            duration_minutes=w_duration,
+                            muscle_group=muscle_group  # Make sure your WorkoutSession model has this column
+                        )
                         w_duration = get_int_input("Duration in minutes: ")
 
                         workout = WorkoutSession(
